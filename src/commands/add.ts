@@ -13,6 +13,7 @@ module.exports = {
 
     const name = parameters.options.name
     const command = parameters.options.command
+    // const alias = `alias ${name}="${command}"`
     // const exists = filesystem.read()
 
     info(`Added alias "${name}" with command "${command}" on ${rcFile} file`)

@@ -6,5 +6,6 @@ test('add alias', async () => {
 
   expect(output).toContain('Added alias "l" with command "ls -l" on zshrc file')
 
-  // expect(zshFile).toContain(`alias l="ls -l"`)
+  // const zshrcFile = filesystem.read(zshrcPath)
+  // expect(zshrcFile).toContain(`alias l="ls -l"`)
 })
