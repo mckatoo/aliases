@@ -50,7 +50,11 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "testTimeout": 50000
+    "testTimeout": 50000,
+    "moduleNameMapper": {
+      "^commands/(.*)$": "<rootDir>/src/commands/$1",
+      "^utils/(.*)$": "<rootDir>/src/utils/$1"
+    }
   },
   "prettier": {
     "semi": false,

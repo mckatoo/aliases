@@ -1,5 +1,6 @@
 import { GluegunToolbox } from "gluegun"
-import { BKP_DIR, NOW, ZSHRC_PATH } from "./envs"
+import { ZSHRC_PATH, BKP_DIR, NOW } from 'utils/envs'
+
 
 export default class {
   private _appToolbox: GluegunToolbox
