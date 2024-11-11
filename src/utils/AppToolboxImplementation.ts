@@ -1,5 +1,5 @@
 import { GluegunToolbox } from "gluegun"
-import { ZSHRC_PATH, BKP_DIR, NOW } from 'utils/envs'
+import { BKP_DIR, NOW, ZSHRC_PATH } from "./envs"
 
 
 export default class {
@@ -18,11 +18,9 @@ export default class {
   }
 
   createBackup(): void {
-    try {
-      this._appToolbox.filesystem.copyAsync(BKP_DIR, `${BKP_DIR}/zshrc_${NOW}`)
-    } catch (error) {
-      error instanceof Error && this._appToolbox.error(error.message)
-    }
+    const fs = this._appToolbox.filesystem
+    !fs.exists(BKP_DIR) && fs.dir(BKP_DIR)
+    fs.copyAsync(ZSHRC_PATH, `${BKP_DIR}/zshrc_${NOW}`)
   }
 
   appendToZshrc(content: string): void {

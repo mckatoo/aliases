@@ -1,4 +1,7 @@
 import { build } from 'gluegun'
+import AppToolboxImplementation from './utils/AppToolboxImplementation'
+import zshrcPrepare from './utils/zshrc-prepare'
+
 
 async function run(argv) {
   const cli = build()
@@ -11,7 +14,7 @@ async function run(argv) {
     .checkForUpdates(1)
     .create()
   const toolbox = await cli.run(argv)
-  // await zshrcPrepare(new AppToolboxImplementation(toolbox))
+  await zshrcPrepare(new AppToolboxImplementation(toolbox))
 
   return toolbox
 }
