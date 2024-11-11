@@ -21,15 +21,7 @@
     "strict": false,
     "target": "es5",
     "declaration": true,
-    "declarationDir": "build/types",
-    "paths": {
-      "commands/*": [
-        "src/commands/*"
-      ],
-      "utils/*": [
-        "./src/utils/*"
-      ]
-    }
+    "declarationDir": "build/types"
   },
   "include": [
     "src/**/*",
