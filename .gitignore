@@ -8,5 +8,3 @@ build
 .vscode
 tmp
 tmp/**/*
-bkp_dir
-zshrc
