@@ -13,4 +13,4 @@ export const MINUTE = DATE.getMinutes()
 export const SECONDS = DATE.getSeconds()
 export const NOW = `${DAY}-${MONTH}-${YEAR}_${HOUR}-${MINUTE}-${SECONDS}`
 
-export const BKP_DIR = `${homedir}/bkp-zshrc`
+export const BKP_DIR = `${homedir}/bkp-shell`

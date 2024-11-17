@@ -50,7 +50,10 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "testTimeout": 50000
+    "testTimeout": 50000,
+    "testMatch": [
+      "<rootDir>/__tests__/**/*.test.ts"
+    ]
   },
   "prettier": {
     "semi": false,

@@ -1,5 +1,5 @@
 import { GluegunToolbox } from "gluegun"
-import { BKP_DIR, NOW, ZSHRC_PATH } from "./envs"
+import { ALIASES_PATH, BKP_DIR, NOW, ZSHRC_PATH } from "./envs"
 
 
 export default class {
@@ -17,13 +17,31 @@ export default class {
     return this._appToolbox.filesystem.readAsync(ZSHRC_PATH)
   }
 
-  createBackup(): void {
+  readAliases(): Promise<string> {
+    return this._appToolbox.filesystem.readAsync(ALIASES_PATH)
+  }
+
+  createZshrcBackup(): void {
     const fs = this._appToolbox.filesystem
     !fs.exists(BKP_DIR) && fs.dir(BKP_DIR)
     fs.copyAsync(ZSHRC_PATH, `${BKP_DIR}/zshrc_${NOW}`)
   }
 
+  fileExists(path: string) {
+    return this._appToolbox.filesystem.exists(path)
+  }
+
+  createAliasesBackup(): void {
+    const fs = this._appToolbox.filesystem
+    !fs.exists(BKP_DIR) && fs.dir(BKP_DIR)
+    fs.copyAsync(ALIASES_PATH, `${BKP_DIR}/aliases_${NOW}`)
+  }
+
   appendToZshrc(content: string): void {
-    this._appToolbox.filesystem.appendAsync(ZSHRC_PATH, content)
+    this._appToolbox.filesystem.append(ZSHRC_PATH, content)
+  }
+
+  appendToAliases(content: string): void {
+    this._appToolbox.filesystem.append(ALIASES_PATH, content)
   }
 }

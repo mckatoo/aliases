@@ -1,5 +1,7 @@
+import { filesystem as fs } from "gluegun";
+
 export async function waitFor(
-  condition: () => boolean,
+  condition: () => boolean | Promise<boolean>,
   options?: {
     timeout_ms?: number,
     interval_ms?: number
@@ -21,4 +23,7 @@ export async function waitFor(
     }, interval_ms);
   });
 }
+
+export const waitForFilesystem = async (filePath: string, exists: boolean = true) =>
+  await waitFor(() => exists ? !!fs.exists(filePath) : !fs.exists(filePath))
 
